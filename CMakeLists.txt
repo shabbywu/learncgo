@@ -27,6 +27,7 @@ set(1.getting_started
   3.3.hello_cunion_ultra
   3.4.hello_cenum
   3.5.hello_cppclass
+  3.6.hello_cpointer
 )
 
 
