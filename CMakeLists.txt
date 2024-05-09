@@ -29,7 +29,7 @@ set(1.getting_started
     3.5.hello_cppclass
     3.6.hello_cpointer)
 
-set(2.cpplib_exercise 1.1.hello_toml11 1.2.c_toml11)
+set(2.cpplib_exercise 1.1.hello_toml11 1.2.c_toml11 2.cgo_toml11)
 
 # then create a project file per tutorial
 foreach(CHAPTER ${CHAPTERS})
