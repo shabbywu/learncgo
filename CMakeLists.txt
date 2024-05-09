@@ -1,7 +1,6 @@
-﻿# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
-# 并包含子项目。
-#
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/golang.cmake)
+﻿set(GOLANG_CMAKE_LIB ${CMAKE_CURRENT_SOURCE_DIR}/cmake/golang.cmake)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+include(${GOLANG_CMAKE_LIB})
 cmake_minimum_required (VERSION 3.8)
 
 # Enable Hot Reload for MSVC compilers if supported.
@@ -11,10 +10,13 @@ if (POLICY CMP0141)
 endif()
 
 project ("learncgo")
+set(CMAKE_CXX_STANDARD 20)
+set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs)
 
 
 set(CHAPTERS
     1.getting_started
+    2.cpplib_exercise
 )
 
 set(1.getting_started
@@ -28,6 +30,10 @@ set(1.getting_started
   3.4.hello_cenum
   3.5.hello_cppclass
   3.6.hello_cpointer
+)
+
+set(2.cpplib_exercise
+  1.1.hello_toml11
 )
 
 
