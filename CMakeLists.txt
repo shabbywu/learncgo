@@ -19,15 +19,15 @@ set(CHAPTERS 1.getting_started 2.cpplib_exercise)
 
 set(1.getting_started
     1.1.hello_go
-    2.1.hello_cgo_embed
+    2.1.hello_cgo_embeded
     2.2.hello_cgo_lib
     2.3.hello_cppgo
     3.1.hello_cstruct
     3.2.hello_cunion
     3.3.hello_cunion_ultra
     3.4.hello_cenum
-    3.5.hello_cppclass
-    3.6.hello_cpointer)
+    3.5.hello_cpointer
+    3.6.hello_cppclass)
 
 set(2.cpplib_exercise 1.1.hello_toml11 1.2.c_toml11 2.cgo_toml11 3.go_toml11)
 

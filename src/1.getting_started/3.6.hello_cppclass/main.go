@@ -9,7 +9,7 @@ func main() {
     myObject := C.MyClass_new(42)
 
     // cgo 不能直接访问 c++ 对象
-	// fmt.Println(myObject.m_value)
+    // fmt.Println(myObject.m_value)
     fmt.Println("value=", C.MyClass_GetValue(myObject))
 
     // 调用 MyClass 的方法
@@ -20,5 +20,5 @@ func main() {
     C.MyClass_delete(myObject)
     // 未定义行为
     // fmt.Println("value=", C.MyClass_GetValue(myObject))
-    // Output: 1980710944 
+    // Output: 1980710944
 }
