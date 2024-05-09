@@ -13,10 +13,10 @@ std::shared_ptr<void> toml11_parse_content(std::string content) {
 }
 
 
-template<typename V> 
-V toml11_find(std::shared_ptr<void> handler, std::string key) {
+template<typename V>
+V& toml11_find(std::shared_ptr<void> handler, std::string key) {
     std::shared_ptr<toml::value> h = std::static_pointer_cast<toml::value>(handler);
-    V v = toml::find<V>(*h, key);
+    V& v = toml::find<V>(*h, key);
     return v;
 }
 
