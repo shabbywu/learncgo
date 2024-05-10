@@ -20,7 +20,6 @@ endif()
 
 project("learncgo")
 set(CMAKE_CXX_STANDARD 20)
-set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs)
 
 set(CHAPTERS 1.getting_started 2.cpplib_exercise 5.final_practice)
 
