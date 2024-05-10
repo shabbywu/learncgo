@@ -1,21 +1,28 @@
 set(GOLANG_CMAKE_LIB ${CMAKE_CURRENT_SOURCE_DIR}/cmake/golang.cmake)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 include(${GOLANG_CMAKE_LIB})
 cmake_minimum_required(VERSION 3.8)
 
-# Enable Hot Reload for MSVC compilers if supported.
-if(POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT
-      "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>"
-  )
+# Enable VCPKG if VCPKG_ROOT defined.
+if(DEFINED ENV{VCPKG_ROOT})
+  set(CMAKE_TOOLCHAIN_FILE
+      "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      CACHE FILEPATH "")
+endif()
+
+option(INSTALL_PYTHON "Install Python with vcpkg?" OFF)
+if(INSTALL_PYTHON)
+  list(APPEND VCPKG_MANIFEST_FEATURES "with-python3")
+else()
+  list(APPEND VCPKG_MANIFEST_FEATURES "without-python3")
 endif()
 
 project("learncgo")
 set(CMAKE_CXX_STANDARD 20)
 set(LIBS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libs)
 
-set(CHAPTERS 1.getting_started 2.cpplib_exercise)
+set(CHAPTERS 1.getting_started 2.cpplib_exercise 5.final_practice)
 
 set(1.getting_started
     1.1.hello_go
@@ -33,7 +40,11 @@ set(2.cpplib_exercise 1.1.hello_toml11 1.2.c_toml11 2.cgo_toml11 3.go_toml11)
 
 # then create a project file per tutorial
 foreach(CHAPTER ${CHAPTERS})
-  foreach(DEMO ${${CHAPTER}})
-    add_subdirectory(src/${CHAPTER}/${DEMO})
-  endforeach(DEMO)
+  if(DEFINED ${CHAPTER})
+    foreach(DEMO ${${CHAPTER}})
+      add_subdirectory(src/${CHAPTER}/${DEMO})
+    endforeach(DEMO)
+  else()
+    add_subdirectory(src/${CHAPTER})
+  endif()
 endforeach(DEMO)

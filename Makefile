@@ -1,19 +1,12 @@
+PYTHON_EXECUTABLE := $(shell which python)
+
+
 .DEFAULT_GOAL:=help
 .PHONY: build
-build: _build ## 构建所有案例
-
-.PHONY: _build
-ifeq ($(OS),Windows_NT)
-_build:
+build: ## 构建所有案例
 	mkdir -p build
-	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Release" -B build
-	cmake --build build --config Release
-else
-_build:
-	mkdir -p build
-	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CONFIGURATION_TYPES="Release" -B build
+	cmake --preset=default -DPython_EXECUTABLE=${PYTHON_EXECUTABLE} -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 	cmake --build build --config Release -v
-endif
 
 
 .PHONY: help
