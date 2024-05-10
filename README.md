@@ -29,4 +29,4 @@ Hand-crafted cgo examples. This project will show some example to guide some way
   - [ ] 2.2.cpp_call_go_export_callback - cgo example, in this case we show that how to call go function from cpp
   - [ ] 2.3 cgo_handle - cgo example, in this case we show that how to use cpp maintain go pointers lifecycle(memory allocated by go)
 - [ ] 4.cgolib_exercise - a full example shows how to use c++ access go libraries - [docker/libtrust](https://github.com/distribution/distribution/tree/release/2.8/vendor/github.com/docker/libtrust)
-- [ ] 5.final_practice - a full example shows how to use cpython to access go libraries through c++
+- [x] 5.final_practice - a full example shows how to use cpython to access go libraries through c++
