@@ -1,6 +1,7 @@
 # (WIP) learncgo
 Hand-crafted cgo examples. This project will show some example to guide some ways to combine c/c++ with go.
 > CGO is awesome but there are no more documents showing how to use it except [CGO wiki](https://pkg.go.dev/cmd/cgo).
+> That's way this project was here.
 
 # RoadMap
 - [x] 1.getting_started - basic knowledge of c/c++, such as how to link c/c++ with go, how to access struct/union/enum/class/pointer via go
