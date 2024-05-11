@@ -10,7 +10,7 @@ import (
 
 func main() {
     {
-        fmt.Println("[*] new struct _Foo instance, and show all fields in Foo type reflect")
+        fmt.Println("[*] new struct _Foo instance, and show all fields in Foo type with reflect")
         foo := C.struct__Foo{
             foo: 1,
             bar: 2.2,
