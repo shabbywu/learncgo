@@ -20,8 +20,9 @@ endif()
 
 project("learncgo")
 set(CMAKE_CXX_STANDARD 20)
+include(CTest)
 
-set(CHAPTERS 1.getting_started 2.cpplib_exercise 5.final_practice)
+set(CHAPTERS 1.getting_started 2.cpplib_exercise 3.advance_cgo 5.final_practice)
 
 set(1.getting_started
     1.1.hello_go
@@ -36,6 +37,15 @@ set(1.getting_started
     3.6.hello_cppclass)
 
 set(2.cpplib_exercise 1.1.hello_toml11 1.2.c_toml11 2.cgo_toml11 3.go_toml11)
+
+set(3.advance_cgo
+    1.1.cpp_std_array
+    1.2.cpp_std_vector
+    1.3.cpp_std_set
+    1.4.cpp_std_map
+    2.1.go_call_cpp_function_pointer
+    2.2.cpp_call_go_export_callback
+    2.3.cgo_handle)
 
 # then create a project file per tutorial
 foreach(CHAPTER ${CHAPTERS})

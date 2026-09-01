@@ -25,3 +25,12 @@ target_link_libraries(
          $<IF:$<TARGET_EXISTS:Python3::Python>,Python3::Python,>)
 
 set_target_properties(_${NAME}_golib PROPERTIES OUTPUT_NAME "libBash")
+
+if(BUILD_TESTING)
+  add_test(NAME ${NAME}_cppexample COMMAND $<TARGET_FILE:${NAME}_cppexample>)
+  add_test(
+    NAME ${NAME}_python_extension
+    COMMAND
+      ${CMAKE_COMMAND} -E env "PYTHONPATH=${CMAKE_LIBRARY_OUTPUT_DIRECTORY}"
+      ${Python_EXECUTABLE} -c "import libBash")
+endif()

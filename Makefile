@@ -8,6 +8,9 @@ build: ## 构建所有案例
 	cmake --preset=default -DPython_EXECUTABLE=${PYTHON_EXECUTABLE} -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 	cmake --build build --config Release -v
 
+.PHONY: test
+test: build ## 构建并运行所有 smoke tests
+	ctest --test-dir build --output-on-failure
 
 .PHONY: help
 help:  ## Show this message

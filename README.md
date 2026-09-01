@@ -3,6 +3,20 @@ Hand-crafted cgo examples. This project will show some example to guide some way
 > CGO is awesome but there are no more documents showing how to use it except [CGO wiki](https://go.dev/wiki/cgo).
 > That's way this project was here.
 
+## Build and test
+
+Initialize GVM in each shell, set `VCPKG_ROOT`, and then build or test the
+examples:
+
+```sh
+source "$HOME/.gvm/scripts/gvm"
+make build
+make test
+```
+
+The reusable C++ container bridge is importable as
+`github.com/shabbywu/learncgo/src/3.advance_cgo/containers`.
+
 # RoadMap
 - [x] 1.getting_started - basic knowledge of c/c++, such as how to link c/c++ with go, how to access struct/union/enum/class/pointer via go
   - [x] 1.1.hello_go - hello world example for go
@@ -20,13 +34,13 @@ Hand-crafted cgo examples. This project will show some example to guide some way
   - [x] 1.2.c_toml11 - c example using toml11, in this case we show that how to export toml11 api from a cpp static library, and use it from another c executable
   - [x] 2.cgo_toml11 - cgo example using toml11, in this case we show that how to export toml11 api from a cpp static library, and use it from another go executable
   - [x] 3.go_toml11 - go example using toml11, in this case we show that how to wrap toml11 cpp static library as a go library, and use it from another go file
-- [ ] 3.advance_cgo - basic knowledge of cgo advance usage - such as how C references to Go, how to use c/c++ function pointer via go(callback)
-  - [ ] 1.1.cpp_std_array
-  - [ ] 1.2.cpp_std_vector
-  - [ ] 1.3.cpp_std_set
-  - [ ] 1.4.cpp_std_map
-  - [ ] 2.1.go_call_cpp_function_pointer - cgo example, in this case we show that how to call c/c++ function pointer from go
-  - [ ] 2.2.cpp_call_go_export_callback - cgo example, in this case we show that how to call go function from cpp
-  - [ ] 2.3 cgo_handle - cgo example, in this case we show that how to use cpp maintain go pointers lifecycle(memory allocated by go)
+- [x] 3.advance_cgo - basic knowledge of cgo advance usage - such as how C references to Go, how to use c/c++ function pointer via go(callback)
+  - [x] 1.1.cpp_std_array
+  - [x] 1.2.cpp_std_vector
+  - [x] 1.3.cpp_std_set
+  - [x] 1.4.cpp_std_map
+  - [x] 2.1.go_call_cpp_function_pointer - cgo example, in this case we show that how to call c/c++ function pointer from go
+  - [x] 2.2.cpp_call_go_export_callback - cgo example, in this case we show that how to call go function from cpp
+  - [x] 2.3 cgo_handle - cgo example, in this case we show that how to use cpp maintain go pointers lifecycle(memory allocated by go)
 - [ ] 4.cgolib_exercise - a full example shows how to use c++ access go libraries - [docker/libtrust](https://github.com/distribution/distribution/tree/release/2.8/vendor/github.com/docker/libtrust)
 - [x] 5.final_practice - a full example shows how to use cpython to access go libraries through c++

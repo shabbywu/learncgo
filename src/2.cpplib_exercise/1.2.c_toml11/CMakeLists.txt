@@ -8,3 +8,6 @@ target_link_libraries(${NAME}_toml11_lib PRIVATE toml11::toml11)
 
 add_executable(${NAME} example.c)
 target_link_libraries(${NAME} PUBLIC ${NAME}_toml11_lib)
+if(BUILD_TESTING)
+  add_test(NAME ${NAME} COMMAND $<TARGET_FILE:${NAME}>)
+endif()
