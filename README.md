@@ -42,5 +42,5 @@ The reusable C++ container bridge is importable as
   - [x] 2.1.go_call_cpp_function_pointer - cgo example, in this case we show that how to call c/c++ function pointer from go
   - [x] 2.2.cpp_call_go_export_callback - cgo example, in this case we show that how to call go function from cpp
   - [x] 2.3 cgo_handle - cgo example, in this case we show that how to use cpp maintain go pointers lifecycle(memory allocated by go)
-- [ ] 4.cgolib_exercise - a full example shows how to use c++ access go libraries - [docker/libtrust](https://github.com/distribution/distribution/tree/release/2.8/vendor/github.com/docker/libtrust)
+- [x] 4.cgolib_exercise - a full example shows how to use c++ access go libraries - [docker/libtrust](https://github.com/distribution/distribution/tree/release/2.8/vendor/github.com/docker/libtrust); it generates an EC P-256 key, signs JSON/JWS, and verifies it from C++
 - [x] 5.final_practice - a full example shows how to use cpython to access go libraries through c++

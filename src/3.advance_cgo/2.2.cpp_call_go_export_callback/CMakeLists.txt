@@ -1,10 +1,8 @@
 include(${GOLANG_CMAKE_LIB})
 
 get_fullname(NAME)
-add_go_static_library(
-  ${NAME}_golib
-  OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/golib.a
-  PACKAGES go_callback.go)
+add_go_static_library(${NAME}_golib OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/golib.a
+                      PACKAGES go_callback.go)
 add_executable(${NAME} callback.cpp)
 add_dependencies(${NAME} ${NAME}_golib)
 target_include_directories(${NAME} PRIVATE ${CMAKE_CURRENT_BINARY_DIR})

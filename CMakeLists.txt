@@ -22,7 +22,8 @@ project("learncgo")
 set(CMAKE_CXX_STANDARD 20)
 include(CTest)
 
-set(CHAPTERS 1.getting_started 2.cpplib_exercise 3.advance_cgo 5.final_practice)
+set(CHAPTERS 1.getting_started 2.cpplib_exercise 3.advance_cgo
+             4.cgolib_exercise 5.final_practice)
 
 set(1.getting_started
     1.1.hello_go
