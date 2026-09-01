@@ -1,5 +1,5 @@
 # add_go_executable: add target that build as go executable
-function(add_go_executable)
+function(add_go_executable NAME)
   set(options OPTIONAL FAST)
   set(oneValueArgs
       OUTPUT
@@ -38,17 +38,19 @@ function(add_go_executable)
   endif()
 
   message("${GOBUILD_ENV} go build -o ${GOBUILD_OUTPUT} ${GOBUILD_PACKAGES}")
-  add_custom_target(${NAME} ALL)
-  add_custom_command(
-    TARGET ${NAME}
+  add_custom_target(
+    ${NAME} ALL
     COMMAND env ${GOBUILD_ENV} go build -o ${GOBUILD_OUTPUT} ${GOBUILD_PACKAGES}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DEPENDS ${DEPENDS}
+    DEPENDS ${GOBUILD_DEPENDS}
     COMMENT "Building ${NAME}")
+  if(BUILD_TESTING)
+    add_test(NAME ${NAME} COMMAND ${GOBUILD_OUTPUT})
+  endif()
 endfunction()
 
 # add_go_static_library: add target that build as go c-archive
-function(add_go_static_library)
+function(add_go_static_library NAME)
   set(options OPTIONAL FAST)
   set(oneValueArgs
       OUTPUT
@@ -87,13 +89,12 @@ function(add_go_static_library)
   endif()
 
   message("${GOBUILD_ENV} go build -o ${GOBUILD_OUTPUT} ${GOBUILD_PACKAGES}")
-  add_custom_target(${NAME} ALL)
-  add_custom_command(
-    TARGET ${NAME}
+  add_custom_target(
+    ${NAME} ALL
     COMMAND env ${GOBUILD_ENV} go build -o ${GOBUILD_OUTPUT}
             -buildmode=c-archive ${GOBUILD_PACKAGES}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DEPENDS ${DEPENDS}
+    DEPENDS ${GOBUILD_DEPENDS}
     COMMENT "Building ${NAME}")
 endfunction()
 
