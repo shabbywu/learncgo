@@ -5,11 +5,10 @@ Hand-crafted cgo examples. This project will show some example to guide some way
 
 ## Build and test
 
-Initialize GVM in each shell, set `VCPKG_ROOT`, and then build or test the
+Initialize `go`, `vcpkg`, and then build or test the
 examples:
 
 ```sh
-source "$HOME/.gvm/scripts/gvm"
 make build
 make test
 ```
